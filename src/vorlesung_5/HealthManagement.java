@@ -1,8 +1,10 @@
 package vorlesung_5;
 
+import vorlesung_5.exceptions.InvalidNameException;
+
 import java.util.*;
 
-public class Main {
+public class HealthManagement {
     static Map<Integer, Patient> patientMap = new HashMap<>();
     static Set<Patient> patientSet = new HashSet<>();
     static Map<Integer, Doctor> doctorMap = new HashMap<>();
@@ -23,43 +25,47 @@ public class Main {
         addPerson(d2);
         addPerson(d3);
         addPerson(d1);
-        findPerson(2026);
-        findPerson(2022);
+        findPersonById(2026);
+        findPersonById(2022);
         //listPersonal();
     }
 
-    public static void addPerson(Person p) {
-        if (p instanceof Patient) {
-            if (!patientSet.contains(p)) {
-                patientSet.add((Patient) p);
-                patientMap.put(p.getId(), (Patient) p);
-            } else {
-                System.out.println(p.getName() + " wurde schon eingetragen");
-            }
+    public static void addPerson(Person p)throws IllegalArgumentException {
+        if(p == null){
+            throw new IllegalArgumentException("Person ist Leer");
         }
-        if (p instanceof Doctor) {
-            if (!doctorSet.contains(p)) {
-                doctorSet.add((Doctor) p);
-                doctorMap.put(p.getId(), (Doctor) p);
-            } else {
-                System.out.println(p.getName() + " wurde schon eingetragen");
+        else {
+            if (p instanceof Patient) {
+                if (!patientSet.contains(p)) {
+                    patientSet.add((Patient) p);
+                    patientMap.put(p.getId(), (Patient) p);
+                } else {
+                    System.out.println(p.getName() + " wurde schon eingetragen");
+                }
+            }
+            if (p instanceof Doctor) {
+                if (!doctorSet.contains(p)) {
+                    doctorSet.add((Doctor) p);
+                    doctorMap.put(p.getId(), (Doctor) p);
+                } else {
+                    System.out.println(p.getName() + " wurde schon eingetragen");
+                }
             }
         }
     }
 
-    public static void findPerson(int id) {
+    public static void findPersonById(int id) throws InvalidNameException {
         boolean exists = false;
         if (patientMap.containsKey(id)) {
             patientMap.get(id).displayInfo();
             exists = true;
-
         }
         if (doctorMap.containsKey(id)) {
             doctorMap.get(id).displayInfo();
             exists = true;
         }
         if(!exists){
-            System.out.println("ID exsistiert weder unter Doctoren noch Patienten!");
+            throw new NoSuchElementException("ID exsistiert weder unter Doctoren noch Patienten!");
         }
     }
 

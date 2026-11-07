@@ -54,10 +54,6 @@ public abstract class Person implements Comparable<Person>, Identifiable{
         else if(this.id > p.id){
             val = 1;
         }
-        else {
-            val = 0;
-        }
         return val;
     }
-
 }
