@@ -1,7 +1,7 @@
 package vorlesung_5;
 
+import vorlesung_5.exceptions.DuplicateIdException;
 import vorlesung_5.exceptions.InvalidNameException;
-
 import java.util.*;
 
 public class HealthManagement {
@@ -50,6 +50,16 @@ public class HealthManagement {
                 } else {
                     System.out.println(p.getName() + " wurde schon eingetragen");
                 }
+            }
+        }
+        for(Patient p2 : patientSet){
+            if(p.getId()==p2.getPatientId()){
+                throw new DuplicateIdException("Die ID "+p.getId()+" wird bereits verwendet.");
+            }
+        }
+        for(Doctor p2 : doctorSet){
+            if(p.getId()==p2.getDoctorId()){
+                throw new DuplicateIdException("Die ID "+p.getId()+" wird bereits verwendet.");
             }
         }
     }
