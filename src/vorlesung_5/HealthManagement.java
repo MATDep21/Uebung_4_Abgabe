@@ -4,12 +4,24 @@ import vorlesung_5.exceptions.DuplicateIdException;
 import vorlesung_5.exceptions.InvalidNameException;
 import java.util.*;
 
+/**
+ * Verwaltet Doctor- und Patientenobjekten, und speichert diese in Sets und Maps. Ermöglicht das Suchen und Ausgeben
+ * einzelner sowie aller gespeicherten Objekte.
+ *
+ * @author Mattis Pallokat
+ * @author Yacine Si-Mohammed
+ * @version 1.0
+ */
 public class HealthManagement {
     static Map<Integer, Patient> patientMap = new HashMap<>();
     static Set<Patient> patientSet = new HashSet<>();
     static Map<Integer, Doctor> doctorMap = new HashMap<>();
     static Set<Doctor> doctorSet = new HashSet<>();
 
+    /**
+     * Erstellt die Doctor- und Patientenobjekten, und testet die addPerson, findPersonById und listPersonal Methoden.
+     * (kp ob testen richtig ist)
+     */
     public static void main(String[] args) {
         Patient p1 = new Patient("Hugo", 1992);
         Patient p2 = new Patient("Vince", 1991);
@@ -30,7 +42,15 @@ public class HealthManagement {
         //listPersonal();
     }
 
-    public static void addPerson(Person p)throws IllegalArgumentException {
+    /**
+     * Fügt das übergebene Objekt in die passende Map und Set ein. Prüft, ob das übergebene Objekt nicht leer ist, ob es
+     * schon nicht schon eingefügt wurde, und ob die ID des Objektes noch nicht vergeben wurde.
+     *
+     * @param p Doctor- oder Patientenobjekten welches in die jeweilige Map und Set hinzugefügt wird.
+     * @throws IllegalArgumentException wird geworfen, wenn das übergebene Objekt leer ist.
+     * @throws DuplicateIdException wird geworfen, wenn das übergebene Objekt eine schon existierende ID hat.
+     */
+    public static void addPerson(Person p)throws IllegalArgumentException, DuplicateIdException {
         if(p == null){
             throw new IllegalArgumentException("Person ist Leer");
         }
@@ -64,6 +84,13 @@ public class HealthManagement {
         }
     }
 
+    /**
+     * Sucht aus allen Maps und Sets das passende Doctor- oder Patientenobjekten raus, und nutzt dafür die ID des
+     * übergebenen Objektes. Wenn das gesuchte Objekt gefunden wurde, werden alle Informationen ausgeben.
+     *
+     * @param id Eideutige ID eines Doctor- oder Patientenobjekt.
+     * @throws InvalidNameException wird geworfen, wenn die gesuchte Person nicht existiert.
+     */
     public static void findPersonById(int id) throws InvalidNameException {
         boolean exists = false;
         if (patientMap.containsKey(id)) {
@@ -79,6 +106,9 @@ public class HealthManagement {
         }
     }
 
+    /**
+     *Gibt alle informationen zu allen Doctor- und Patientenobjekten aus.
+     */
     public static void listPersonal(){
       List <Person> liste = new ArrayList<>();
       liste.addAll(patientSet);
