@@ -23,23 +23,47 @@ public class HealthManagement {
      * (kp ob testen richtig ist)
      */
     public static void main(String[] args) {
-        Patient p1 = new Patient("Hugo", 1992);
-        Patient p2 = new Patient("Vince", 1991);
-        Patient p3 = new Patient("Said", 1992);
-        Doctor d1 = new Doctor("Zidane", 2010);
-        Doctor d2 = new Doctor("Özil", 2016);
-        Doctor d3 = new Doctor("Maza", 2026);
-        addPerson(p1);
-        addPerson(p2);
-        addPerson(p3);
-        addPerson(p1);
-        addPerson(d1);
-        addPerson(d2);
-        addPerson(d3);
-        addPerson(d1);
-        findPersonById(2026);
-        findPersonById(2022);
-        //listPersonal();
+        Patient hugo = new Patient("Hugo", 1993);
+        try {
+            Patient theManWithNoName = new Patient(null, 1995);
+        } catch (InvalidNameException e) {
+            System.out.println(e.getMessage());
+            // richtige exception einfügen
+        }
+        Patient vince = new Patient("Vince", 1991);
+        Patient said = new Patient("Said", 1992);
+        Doctor zidane = new Doctor("Zidane", 2010);
+        try {
+            Doctor leer = new Doctor("   ", 2005);
+        } catch (InvalidNameException e) {
+            System.out.println(e.getMessage());
+        }
+        Doctor özil = new Doctor("Özil", 2014);
+        Doctor maza = new Doctor("Maza", 2026);
+        Doctor copyCat = new Doctor("Piko",1993);
+        Patient zeroSum = null;
+        Doctor doppelGänger = new Doctor("Zidane", 2010);
+
+        addPerson(hugo);
+        addPerson(vince);
+        try {
+            addPerson(zeroSum);
+        }
+        catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
+        addPerson(said);
+        addPerson(zidane);
+        addPerson(özil);
+        try{
+            addPerson(copyCat);
+        }
+        catch (DuplicateIdException e){
+            System.out.println(e.getMessage());
+        }
+        addPerson(maza);
+        //addPerson(doppelGänger);
+        listPersonal();
     }
 
     /**
@@ -55,6 +79,16 @@ public class HealthManagement {
             throw new IllegalArgumentException("Person ist Leer");
         }
         else {
+            for(Patient p2 : patientSet){
+                if(p.getId()==p2.getPatientId()){
+                    throw new DuplicateIdException("Die ID "+p.getId()+" wird bereits verwendet.");
+                }
+            }
+            for(Doctor p2 : doctorSet){
+                if(p.getId()==p2.getDoctorId()){
+                    throw new DuplicateIdException("Die ID "+p.getId()+" wird bereits verwendet.");
+                }
+            }
             if (p instanceof Patient) {
                 if (!patientSet.contains(p)) {
                     patientSet.add((Patient) p);
@@ -72,16 +106,6 @@ public class HealthManagement {
                 }
             }
         }
-        for(Patient p2 : patientSet){
-            if(p.getId()==p2.getPatientId()){
-                throw new DuplicateIdException("Die ID "+p.getId()+" wird bereits verwendet.");
-            }
-        }
-        for(Doctor p2 : doctorSet){
-            if(p.getId()==p2.getDoctorId()){
-                throw new DuplicateIdException("Die ID "+p.getId()+" wird bereits verwendet.");
-            }
-        }
     }
 
     /**
@@ -89,9 +113,10 @@ public class HealthManagement {
      * übergebenen Objektes. Wenn das gesuchte Objekt gefunden wurde, werden alle Informationen ausgeben.
      *
      * @param id Eideutige ID eines Doctor- oder Patientenobjekt.
-     * @throws InvalidNameException wird geworfen, wenn die gesuchte Person nicht existiert.
+     * @throws NoSuchElementException wird geworfen, wenn die gesuchte Person nicht existiert.
      */
-    public static void findPersonById(int id) throws InvalidNameException {
+
+    public static void findPersonById(int id) throws NoSuchElementException {
         boolean exists = false;
         if (patientMap.containsKey(id)) {
             patientMap.get(id).displayInfo();
@@ -108,6 +133,7 @@ public class HealthManagement {
 
     /**
      *Gibt alle informationen zu allen Doctor- und Patientenobjekten aus.
+     *Sortierung wird mithilfe einer ArrayList ermöglicht.
      */
     public static void listPersonal(){
       List <Person> liste = new ArrayList<>();
