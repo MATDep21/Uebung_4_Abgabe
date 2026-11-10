@@ -74,13 +74,13 @@ public class HealthManagement {
 
         /*
          * Aufgabe 3:
-         *-InvalidNameException hat ursprünglich von Exception geerbt, Exception ist checked und somit auch InvalidNameException.
-         * Jedoch soll im Anschluss laut Aufgabenstellung von RuntimeException geerbt werden, was es zu einer Unchecked Exception macht.
+         * -InvalidNameException hat ursprünglich von Exception geerbt, Exception ist checked und somit auch InvalidNameException.
+         *  Jedoch soll im Anschluss laut Aufgabenstellung von RuntimeException geerbt werden, was es zu einer Unchecked Exception macht.
          *
-         *-NoSuchElementException gehört zu den RuntimeExceptions und ist somit Unchecked
+         * -NoSuchElementException gehört zu den RuntimeExceptions und ist somit Unchecked
          *
-         *-Änderung der Exception, ändert wie der Compiler mit einem Fehler umgeht,
-         * da jetzt keine prüfung für die checked Exception verlangt wird sondern nun freiwillig ist.
+         * -Änderung der Exception, ändert wie der Compiler mit einem Fehler umgeht,
+         *  da jetzt keine prüfung für die checked Exception verlangt wird sondern nun freiwillig ist.
          *
          *
          * Aufgabe 6:
