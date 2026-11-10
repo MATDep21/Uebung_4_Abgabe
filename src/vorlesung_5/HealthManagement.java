@@ -117,8 +117,8 @@ public class HealthManagement {
     }
 
     /**
-     * Sucht aus allen Maps das passende Doctor- oder Patientenobjekte raus, und nutzt dafür die ID des
-     * übergebenen Objektes. Wenn das gesuchte Objekt gefunden wurde, werden alle Informationen ausgegeben.
+     * Sucht aus allen Maps das passende Doctor- oder Patientenobjekte raus, und nutzt dafür die ID.
+     * Wenn das gesuchte Objekt gefunden wurde, werden alle Informationen ausgegeben.
      *
      * @param id ID eines möglichen Doctor- oder Patientenobjekt.
      * @throws NoSuchElementException wird geworfen, wenn die gesuchte Person nicht existiert.
@@ -140,7 +140,7 @@ public class HealthManagement {
     }
 
     /**
-     * Gibt alle informationen zu allen Doctor- und Patientenobjekte aus.
+     * Gibt Informationen zu allen Doktor- und Patientenobjekte aus.
      * Sortierung wird mithilfe einer ArrayList ermöglicht.
      */
 
@@ -155,14 +155,15 @@ public class HealthManagement {
     }
 }
 
-/**
+/*
  * Aufgabe 3:
- *-InvalidNameException hat ursprünglich von Exception geerbt, Esception ist checked und somit auch InvalidNameException.
- * Jedoch soll im anschluss laut Aufgabenstellung von RuntimeException geerbt werden, was es zu einer UncheckedException macht.
+ *-InvalidNameException hat ursprünglich von Exception geerbt, Exception ist checked und somit auch InvalidNameException.
+ * Jedoch soll im Anschluss laut Aufgabenstellung von RuntimeException geerbt werden, was es zu einer UncheckedException macht.
  *-NoSuchElementException gehört zu den RuntimeExceptions und ist somit Unchecked
  *-Änderung der Exception ändert wie der Compiler mit einem Fehler umgeht,
- * da jetzt keine prüfung für die checked Exception verlangt wird sondern nun freiwilig ist.
- *(Falls InvalidNameException Checked ist muss Doctor/Patient um den Try-/Catchblock als auch throws aus Person erweitert werden)
+ * da jetzt keine prüfung für die checked Exception verlangt wird sondern nun freiwillig ist.
+ *(Falls InvalidNameException Checked ist muss Doctor/Patient um den Try-/Catchblock als auch throws aus Person erweitert werden
+ * als auch um die Attribute erweitert werden)
  *
  * Aufgabe 6:
  * Eine Checked Exception ist sinnvoller, um erwartbare Fehler, die nicht vom Programm ausgeschlossen werden können,

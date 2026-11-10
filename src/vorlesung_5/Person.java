@@ -19,7 +19,7 @@ public abstract class Person implements Comparable<Person>, Identifiable{
     private int id;
 
     /**
-     * Erstellt eine Person anhand des übergebenden Namens und ID.
+     * Erstellt eine Person anhand des übergebenen Namens und ID.
      *
      * @param name Name der Person
      * @param id einzigartige ID der Person
