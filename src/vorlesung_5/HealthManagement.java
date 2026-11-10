@@ -31,7 +31,6 @@ public class HealthManagement {
             Patient theManWithNoName = new Patient(null, 1995);
         } catch (InvalidNameException e) {
             System.out.println(e.getMessage());
-            // richtige exception einfügen
         }
         Patient vince = new Patient("Vince", 1991);
         Patient said = new Patient("Said", 1992);
@@ -74,16 +73,6 @@ public class HealthManagement {
             System.out.println(e.getMessage());
         }
     }
-
-    /**
-    Eine Checked Exception ist sinnvoller, um erwartbare Probleme bei korrektem Code abzufangen, wie zum Beispiel
-    fehlende Namen oder doppelte IDs.
-    Eine Unchecked Exception dient wiederum Fehler im Code, wie zum Beispiel IndexOutOfBoundsException, welche während
-    der Entwicklung des Codes auf Programmierfehler aufzeigt.
-    Defensives Programmieren ist das Vorbereiten eines Codes auf unerwartete Eingaben, Fehler oder ungültige Zustände.
-    Die Vorbereitung wird mithilfe Exceptions umgesetzt, was schlussendlich dazu führt, dass Fehler präventiv behandelt
-    werden und das Programm damit robuster und fehlertoleranter wird.
-     */
 
     /**
      * Fügt das übergebene Objekt in die passende Map und Set ein. Prüft, ob das übergebene Objekt nicht leer ist, ob es
@@ -168,9 +157,20 @@ public class HealthManagement {
 }
 
 /**
+ * Aufgabe 3:
  *-InvalidNameException hat ursprünglich von Exception geerbt, dieser ist checked und somit auch InvalidNameException
  *-NoSuchElementException gehört zu den RuntimeExceptions und ist somit Unchecked
  *-Änderung der Exception ändert wie der Compiler mit einem Fehler umgeht,
  * da jetzt keine prüfung verlangt für die checked Exception verlangt wird sondern nun freiwilig ist.
- *
+ */
+
+/**
+ * Aufgabe 4
+ *Eine Checked Exception ist sinnvoller, um erwartbare Probleme bei korrektem Code abzufangen, wie zum Beispiel
+ *fehlende Namen oder doppelte IDs.
+ *Eine Unchecked Exception dient wiederum Fehler im Code, wie zum Beispiel IndexOutOfBoundsException, welche während
+ *der Entwicklung des Codes auf Programmierfehler aufzeigt.
+ *Defensives Programmieren ist das Vorbereiten eines Codes auf unerwartete Eingaben, Fehler oder ungültige Zustände.
+ *Die Vorbereitung wird mithilfe Exceptions umgesetzt, was schlussendlich dazu führt, dass Fehler präventiv behandelt
+ *werden und das Programm damit robuster und fehlertoleranter wird.
  */

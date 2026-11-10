@@ -1,5 +1,7 @@
 package vorlesung_5;
 
+import vorlesung_5.exceptions.InvalidNameException;
+
 /**
  * Definiert einen Arzt, der von der abstrakten Klasse Person erbt.
  * Ein Doctor besitzt einen Namen und eine eindeutige ID.
@@ -16,6 +18,8 @@ public class Doctor extends Person {
      *
      * @param name Name des Doctors
      * @param id Eindeutige ID des Doctors
+     * @throws InvalidNameException wird geworfen, wenn der Name {@code null} oder leer ist. Prüfung erfolgt in
+     * der Elternklasse Person
      */
 
     public Doctor(String name, int id){
@@ -24,7 +28,6 @@ public class Doctor extends Person {
 
     /**
      * Gibt den Namen und die ID des Doctors als String auf die Konsole aus.
-     *
      */
 
     @Override
