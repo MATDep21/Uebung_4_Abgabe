@@ -65,6 +65,15 @@ public class HealthManagement {
         //addPerson(doppelGänger);
         listPersonal();
     }
+    /*
+    Eine Checked Exception ist sinnvoller, um erwartbare Probleme bei korrektem Code abzufangen, wie zum Beispiel
+    fehlende Namen oder doppelte IDs.
+    Eine Unchecked Exception dient wiederum Fehler im Code, wie zum Beispiel IndexOutOfBoundsException, welche während
+    der Entwicklung des Codes auf Programmierfehler aufzeigt.
+    Defensives Programmieren ist das Vorbereiten eines Codes auf unerwartete Eingaben, Fehler oder ungültige Zustände.
+    Die Vorbereitung wird mithilfe Exceptions umgesetzt, was schlussendlich dazu führt, dass Fehler präventiv behandelt
+    werden und das Programm damit robuster und fehlertoleranter wird.
+     */
 
     /**
      * Fügt das übergebene Objekt in die passende Map und Set ein. Prüft, ob das übergebene Objekt nicht leer ist, ob es
