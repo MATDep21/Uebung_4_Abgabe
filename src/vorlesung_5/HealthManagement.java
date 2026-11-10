@@ -64,6 +64,12 @@ public class HealthManagement {
         addPerson(maza);
         //addPerson(doppelGänger);
         listPersonal();
+        findPersonById(1993);
+        try{
+            findPersonById(9999);
+        } catch (NoSuchElementException e) {
+            System.out.println(e.getMessage());
+        }
     }
     /*
     Eine Checked Exception ist sinnvoller, um erwartbare Probleme bei korrektem Code abzufangen, wie zum Beispiel
@@ -83,9 +89,10 @@ public class HealthManagement {
      * @throws IllegalArgumentException wird geworfen, wenn das übergebene Objekt leer ist.
      * @throws DuplicateIdException wird geworfen, wenn das übergebene Objekt eine schon existierende ID hat.
      */
+
     public static void addPerson(Person p)throws IllegalArgumentException, DuplicateIdException {
         if(p == null){
-            throw new IllegalArgumentException("Person ist Leer");
+            throw new IllegalArgumentException("Objekt ist Leer");
         }
         else {
             for(Patient p2 : patientSet){
