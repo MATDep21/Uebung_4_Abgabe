@@ -99,8 +99,8 @@ public class HealthManagement {
     }
 
     /**
-     * Fügt das übergebene Objekt in die passende Map und Set ein. Prüft, ob das übergebene Objekt nicht leer ist, ob es
-     * schon eingefügt wurde, und ob die ID des Objektes noch nicht vergeben wurde.
+     * Fügt das übergebene Objekt in die passende Map und Set ein. Prüft, ob das übergebene Objekt nicht leer ist
+     * und ob die ID des Objektes noch nicht vergeben wurde.
      *
      * @param p Doctor- oder Patientenobjekte welches in die jeweilige Map und Set hinzugefügt wird.
      * @throws IllegalArgumentException wird geworfen, wenn das übergebene Objekt {@code null} ist.
@@ -123,20 +123,12 @@ public class HealthManagement {
                 }
             }
             if (p instanceof Patient) {
-                if (!patientSet.contains(p)) { // Redundant aber wegen vollständigkeit halber zu Hausaufgabe 3 trotzdem vorhanden
                     patientSet.add((Patient) p);
                     patientMap.put(p.getId(), (Patient) p);
-                } else { // Redundant aber wegen vollständigkeit halber zu Hausaufgabe 3 trotzdem vorhanden
-                    System.out.println(p.getName() + " wurde schon eingetragen");
-                }
             }
-            if (p instanceof Doctor) {
-                if (!doctorSet.contains(p)) { // Redundant aber wegen vollständigkeit halber zu Hausaufgabe 3 trotzdem vorhanden
+            else if (p instanceof Doctor) {
                     doctorSet.add((Doctor) p);
                     doctorMap.put(p.getId(), (Doctor) p);
-                } else { // Redundant aber wegen vollständigkeit halber zu Hausaufgabe 3 trotzdem vorhanden
-                    System.out.println(p.getName() + " wurde schon eingetragen");
-                }
             }
         }
     }
