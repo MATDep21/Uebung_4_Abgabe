@@ -1,7 +1,7 @@
 package vorlesung_5.exceptions;
 
 /**
- * Exception, die ausgelöst wird, wenn eine ID auf mehrere Personen zugewiesen wird.
+ * Exception, die Ausgelöst wird, wenn eine ID auf mehrere Personen zugewiesen wird.
  *
  * @author Mattis Pallokat
  * @version 1.0
@@ -10,9 +10,9 @@ package vorlesung_5.exceptions;
 public class DuplicateIdException extends RuntimeException {
 
     /**
-     * Erstellt eine neue InvalidNameException mit einer übergebenen Fehlermeldung.
+     * Erstellt eine neue DuplicateIdException mit einer übergebenen Fehlermeldung.
      *
-     * @param message die Beschreibung des Fehlers
+     * @param message die Beschreibung des Fehlers.
      */
 
     public DuplicateIdException(String message) {

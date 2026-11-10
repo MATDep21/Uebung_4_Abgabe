@@ -14,12 +14,12 @@ import vorlesung_5.exceptions.InvalidNameException;
 public class Doctor extends Person {
 
     /**
-     * Erstellt einen Doctor anhand des übergebenen Namens und ID
+     * Erstellt einen Doctor anhand des übergebenen Namens und ID.
      *
      * @param name Name des Doctors
      * @param id Eindeutige ID des Doctors
-     * @throws InvalidNameException wird geworfen, wenn der Name {@code null} oder leer ist. Prüfung erfolgt in
-     * der Elternklasse Person
+     * @throws InvalidNameException wird geworfen, wenn der Name {@code null} oder aus Leerzeichen besteht.
+     * Prüfung erfolgt in der Elternklasse Person
      */
 
     public Doctor(String name, int id){
@@ -27,7 +27,7 @@ public class Doctor extends Person {
     }
 
     /**
-     * Gibt den Namen und die ID des Doctors als String auf die Konsole aus.
+     * Gibt den Namen und die ID des Doctors als String auf der Konsole aus.
      */
 
     @Override

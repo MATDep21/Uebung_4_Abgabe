@@ -14,10 +14,10 @@ import java.util.*;
  */
 
 public class HealthManagement {
-    static Map<Integer, Patient> patientMap = new HashMap<>();
-    static Set<Patient> patientSet = new HashSet<>();
-    static Map<Integer, Doctor> doctorMap = new HashMap<>();
-    static Set<Doctor> doctorSet = new HashSet<>();
+    private static Map<Integer, Patient> patientMap = new HashMap<>();
+    private static Set<Patient> patientSet = new HashSet<>();
+    private static Map<Integer, Doctor> doctorMap = new HashMap<>();
+    private static Set<Doctor> doctorSet = new HashSet<>();
 
     /**
      * Erstellt die Doctor- und Patientenobjekte und führt die addPerson, findPersonById und listPersonal Methoden aus.
@@ -64,19 +64,18 @@ public class HealthManagement {
             System.out.println(e.getMessage());
         }
         addPerson(maza);
-        //addPerson(doppelGänger);
-        listPersonal();
         findPersonById(1993);
         try{
             findPersonById(9999);
         } catch (NoSuchElementException e) {
             System.out.println(e.getMessage());
         }
+        listPersonal();
     }
 
     /**
      * Fügt das übergebene Objekt in die passende Map und Set ein. Prüft, ob das übergebene Objekt nicht leer ist, ob es
-     * schon nicht schon eingefügt wurde, und ob die ID des Objektes noch nicht vergeben wurde.
+     * schon eingefügt wurde, und ob die ID des Objektes noch nicht vergeben wurde.
      *
      * @param p Doctor- oder Patientenobjekte welches in die jeweilige Map und Set hinzugefügt wird.
      * @throws IllegalArgumentException wird geworfen, wenn das übergebene Objekt leer ist.
@@ -99,18 +98,18 @@ public class HealthManagement {
                 }
             }
             if (p instanceof Patient) {
-                if (!patientSet.contains(p)) {
+                if (!patientSet.contains(p)) { // Redundant aber wegen vollständigkeit halber zu Hausaufgabe 3 trotzdem vorhanden
                     patientSet.add((Patient) p);
                     patientMap.put(p.getId(), (Patient) p);
-                } else {
+                } else { // Redundant aber wegen vollständigkeit halber zu Hausaufgabe 3 trotzdem vorhanden
                     System.out.println(p.getName() + " wurde schon eingetragen");
                 }
             }
             if (p instanceof Doctor) {
-                if (!doctorSet.contains(p)) {
+                if (!doctorSet.contains(p)) { // Redundant aber wegen vollständigkeit halber zu Hausaufgabe 3 trotzdem vorhanden
                     doctorSet.add((Doctor) p);
                     doctorMap.put(p.getId(), (Doctor) p);
-                } else {
+                } else { // Redundant aber wegen vollständigkeit halber zu Hausaufgabe 3 trotzdem vorhanden
                     System.out.println(p.getName() + " wurde schon eingetragen");
                 }
             }
@@ -118,8 +117,8 @@ public class HealthManagement {
     }
 
     /**
-     * Sucht aus allen Maps und Sets das passende Doctor- oder Patientenobjekte raus, und nutzt dafür die ID des
-     * übergebenen Objektes. Wenn das gesuchte Objekt gefunden wurde, werden alle Informationen ausgeben.
+     * Sucht aus allen Maps das passende Doctor- oder Patientenobjekte raus, und nutzt dafür die ID des
+     * übergebenen Objektes. Wenn das gesuchte Objekt gefunden wurde, werden alle Informationen ausgegeben.
      *
      * @param id Eideutige ID eines Doctor- oder Patientenobjekt.
      * @throws NoSuchElementException wird geworfen, wenn die gesuchte Person nicht existiert.
@@ -136,7 +135,7 @@ public class HealthManagement {
             exists = true;
         }
         if(!exists){
-            throw new NoSuchElementException("ID exsistiert weder unter Doctoren noch Patienten!");
+            throw new NoSuchElementException("Keine Person mit der ID " + id + " gefunden");
         }
     }
 
@@ -158,14 +157,15 @@ public class HealthManagement {
 
 /**
  * Aufgabe 3:
- *-InvalidNameException hat ursprünglich von Exception geerbt, dieser ist checked und somit auch InvalidNameException
+ *-InvalidNameException hat ursprünglich von Exception geerbt, dieser ist checked und somit auch InvalidNameException.
+ * Jedoch soll im anschluss laut Aufgabenstellung von RuntimeException geerbt werden, was es zu einer UncheckedException.
+ * Falls es Checked ist muss Doctor/Patient um den Try-/Catchblock aus Person erweitert werden.
  *-NoSuchElementException gehört zu den RuntimeExceptions und ist somit Unchecked
  *-Änderung der Exception ändert wie der Compiler mit einem Fehler umgeht,
  * da jetzt keine prüfung verlangt für die checked Exception verlangt wird sondern nun freiwilig ist.
- */
-
-/**
- * Aufgabe 4
+ *
+ *
+ * Aufgabe 6:
  *Eine Checked Exception ist sinnvoller, um erwartbare Probleme bei korrektem Code abzufangen, wie zum Beispiel
  *fehlende Namen oder doppelte IDs.
  *Eine Unchecked Exception dient wiederum Fehler im Code, wie zum Beispiel IndexOutOfBoundsException, welche während

@@ -23,13 +23,13 @@ public abstract class Person implements Comparable<Person>, Identifiable{
      *
      * @param name Name der Person
      * @param id einzigartige ID der Person
-     * @throws InvalidNameException wird geworfen, wenn der Name {@code null} oder leer ist.
+     * @throws InvalidNameException wird geworfen, wenn der Name {@code null} ist oder aus Leerzeichen besteht.
      */
 
     public Person(String name, int id) throws InvalidNameException {
 
         if(name == null || name.isBlank()){
-            throw new InvalidNameException("Name ist ungültig!");
+            throw new InvalidNameException("Name darf weder Leer sein oder nur aus Leerzeichen bestehen!");
         }
         else {
             this.name = name;
@@ -95,7 +95,7 @@ public abstract class Person implements Comparable<Person>, Identifiable{
      * Vergleicht zwei Personen anhand ihrer eindeutigen ID
      *
      * @param p die Person mit der verglichen wird.
-     * @return {@code -1} wenn die ID kleiner ist, {@code 0} wenn IDs gleich groß sind, {@code 1} wenn ID größer ist
+     * @return {@code -1} wenn die ID kleiner ist, {@code 0} wenn IDs gleich groß sind, {@code 1} wenn ID größer ist.
      */
 
     @Override
@@ -106,6 +106,9 @@ public abstract class Person implements Comparable<Person>, Identifiable{
         }
         else if(this.id > p.id){
             val = 1;
+        }
+        else if(this.id == p.getId()){
+            return 0;
         }
         return val;
     }
