@@ -72,6 +72,7 @@ public class HealthManagement {
         }
     }
     /*
+
     Eine Checked Exception ist sinnvoller, um erwartbare Probleme bei korrektem Code abzufangen, wie zum Beispiel
     fehlende Namen oder doppelte IDs.
     Eine Unchecked Exception dient wiederum Fehler im Code, wie zum Beispiel IndexOutOfBoundsException, welche während
@@ -151,6 +152,7 @@ public class HealthManagement {
      *Gibt alle informationen zu allen Doctor- und Patientenobjekten aus.
      *Sortierung wird mithilfe einer ArrayList ermöglicht.
      */
+
     public static void listPersonal(){
       List <Person> liste = new ArrayList<>();
       liste.addAll(patientSet);
@@ -161,3 +163,12 @@ public class HealthManagement {
       }
     }
 }
+
+/**
+ *
+ *-InvalidNameException hat ursprünglich von Exceptions geerbt, dieser ist checked und somit auch InvalidNameException
+ *-NoSuchElementException gehört zu den RuntimeExceptions und ist somit Unchecked
+ *-Änderung der Exception ändert wie der Compiler mit einem Fehler umgeht, da jetzt jede exception gecached wird und
+ *nicht nur die die Angegeben worden sind
+ *
+ */
