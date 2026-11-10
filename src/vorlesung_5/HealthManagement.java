@@ -165,11 +165,11 @@ public class HealthManagement {
  *(Falls InvalidNameException Checked ist muss Doctor/Patient um den Try-/Catchblock als auch throws aus Person erweitert werden)
  *
  * Aufgabe 6:
- *Eine Checked Exception ist sinnvoller, um erwartbare Probleme bei korrektem Code abzufangen, wie zum Beispiel
- *fehlende Namen oder doppelte IDs.
- *Eine Unchecked Exception dient wiederum Fehler im Code, wie zum Beispiel IndexOutOfBoundsException, welche während
- *der Entwicklung des Codes auf Programmierfehler aufzeigt.
- *Defensives Programmieren ist das Vorbereiten eines Codes auf unerwartete Eingaben, Fehler oder ungültige Zustände.
- *Die Vorbereitung wird mithilfe Exceptions umgesetzt, was schlussendlich dazu führt, dass Fehler präventiv behandelt
- *werden und das Programm damit robuster und fehlertoleranter wird.
+ * Eine Checked Exception ist sinnvoller, um erwartbare Fehler, die nicht vom Programm ausgeschlossen werden können,
+ * abzufangen. Der Compiler zwingt den Aufrufer dabei, den Fehler zu behandeln oder weiterzugeben.
+ * Eine Unchecked Exception dient wiederum dazu, Fehler im Code aufzuzeigen die zur Laufzeit auftritt und auf
+ * Programmierfehler hinweist. Sie wird nicht vom Compiler geprüft.
+ * Defensives Programmieren bedeutet, einen Code auf unerwartete Eingaben, Fehler oder ungültige Zustände vorzubereiten.
+ * Die Vorbereitung kann mithilfe von Exceptions umgesetzt werden, was schlussendlich dazu führt, dass Fehler frühzeitig
+ * erkannt und kontrolliert behandelt werden und das Programm dadurch robuster und fehlertoleranter wird.
  */
