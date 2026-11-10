@@ -165,7 +165,7 @@ public class HealthManagement {
     }
 
     /**
-     * Gibt Informationen zu allen Doktor- und Patientenobjekte aus.
+     * Gibt Informationen zu allen Doctor- und Patientenobjekte aus.
      * Sortierung wird mithilfe einer ArrayList ermöglicht.
      */
 

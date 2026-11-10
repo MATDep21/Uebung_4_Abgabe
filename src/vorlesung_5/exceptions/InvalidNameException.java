@@ -1,4 +1,5 @@
 package vorlesung_5.exceptions;
+
 /**
  * Exception, die ausgelöst wird, wenn ein ungültiger Name übergeben wird.
  *
