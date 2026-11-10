@@ -4,6 +4,7 @@ package vorlesung_5.exceptions;
  * Exception, die ausgelöst wird, wenn eine ID auf mehrere Personen zugewiesen wird.
  *
  * @author Mattis Pallokat
+ * @author Yacine Si-Mohammed
  * @version 1.0
  */
 

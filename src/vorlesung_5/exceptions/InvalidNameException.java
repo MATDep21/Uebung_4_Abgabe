@@ -3,6 +3,7 @@ package vorlesung_5.exceptions;
 /**
  * Exception, die ausgelöst wird, wenn ein ungültiger Name übergeben wird.
  *
+ * @author Mattis Pallokat
  * @author Yacine Si-Mohammed
  * @version 1.0
  */

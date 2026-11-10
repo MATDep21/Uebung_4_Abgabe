@@ -3,6 +3,7 @@ package vorlesung_5;
 /**
  * Interface zur Identifizierung von Objekten anhand einer ID und eines Namens.
  *
+ * @author Mattis Pallokat
  * @author Yacine Si-Mohammed
  * @version 1.0
  */
