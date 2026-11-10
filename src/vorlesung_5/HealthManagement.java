@@ -71,6 +71,31 @@ public class HealthManagement {
             System.out.println(e.getMessage());
         }
         listPersonal();
+
+        /*
+         * Aufgabe 3:
+         *-InvalidNameException hat ursprünglich von Exception geerbt, Exception ist checked und somit auch InvalidNameException.
+         * Jedoch soll im Anschluss laut Aufgabenstellung von RuntimeException geerbt werden, was es zu einer Unchecked Exception macht.
+         *
+         *-NoSuchElementException gehört zu den RuntimeExceptions und ist somit Unchecked
+         *
+         *-Änderung der Exception, ändert wie der Compiler mit einem Fehler umgeht,
+         * da jetzt keine prüfung für die checked Exception verlangt wird sondern nun freiwillig ist.
+         *
+         *
+         * Aufgabe 6:
+         * -Eine Checked Exception ist sinnvoller, um erwartbare Fehler, die nicht vom Programm ausgeschlossen werden können,
+         *  abzufangen. Der Compiler zwingt den Aufrufer dabei, den Fehler zu behandeln oder weiterzugeben.
+         *  Beispielsweise FileNotFoundException oder I/O-Exception.
+         *
+         * -Eine Unchecked Exception dient wiederum dazu, Fehler im Code aufzuzeigen die zur Laufzeit auftritt und auf
+         *  Programmierfehler hinweist. Sie wird nicht vom Compiler geprüft. Dementsprechend wären diese für vermeidbare Probleme
+         *  wie fehlende Objekte/Attribute oder Zugriffe auf nicht Existierenden Array-Index von Vorteil.
+         *
+         * -Defensives Programmieren bedeutet, einen Code auf unerwartete Eingaben, Fehler oder ungültige Zustände vorzubereiten.
+         *  Die Vorbereitung kann mithilfe von Exceptions umgesetzt werden, was schlussendlich dazu führt, dass Fehler frühzeitig
+         *  erkannt und kontrolliert behandelt werden und das Programm dadurch robuster und fehlertoleranter wird.
+         */
     }
 
     /**
@@ -154,23 +179,3 @@ public class HealthManagement {
       }
     }
 }
-
-/*
- * Aufgabe 3:
- *-InvalidNameException hat ursprünglich von Exception geerbt, Exception ist checked und somit auch InvalidNameException.
- * Jedoch soll im Anschluss laut Aufgabenstellung von RuntimeException geerbt werden, was es zu einer UncheckedException macht.
- *-NoSuchElementException gehört zu den RuntimeExceptions und ist somit Unchecked
- *-Änderung der Exception ändert wie der Compiler mit einem Fehler umgeht,
- * da jetzt keine prüfung für die checked Exception verlangt wird sondern nun freiwillig ist.
- *(Falls InvalidNameException Checked ist muss Doctor/Patient um den Try-/Catchblock als auch throws aus Person erweitert werden
- * als auch um die Attribute erweitert werden)
- *
- * Aufgabe 6:
- * Eine Checked Exception ist sinnvoller, um erwartbare Fehler, die nicht vom Programm ausgeschlossen werden können,
- * abzufangen. Der Compiler zwingt den Aufrufer dabei, den Fehler zu behandeln oder weiterzugeben.
- * Eine Unchecked Exception dient wiederum dazu, Fehler im Code aufzuzeigen die zur Laufzeit auftritt und auf
- * Programmierfehler hinweist. Sie wird nicht vom Compiler geprüft.
- * Defensives Programmieren bedeutet, einen Code auf unerwartete Eingaben, Fehler oder ungültige Zustände vorzubereiten.
- * Die Vorbereitung kann mithilfe von Exceptions umgesetzt werden, was schlussendlich dazu führt, dass Fehler frühzeitig
- * erkannt und kontrolliert behandelt werden und das Programm dadurch robuster und fehlertoleranter wird.
- */
