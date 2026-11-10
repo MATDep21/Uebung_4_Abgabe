@@ -5,7 +5,7 @@ import vorlesung_5.exceptions.InvalidNameException;
 import java.util.*;
 
 /**
- * Verwaltet Doctor- und Patientenobjekten, und speichert diese in Sets und Maps. Ermöglicht das Suchen und Ausgeben
+ * Verwaltet Doctor- und Patientenobjekte, und speichert diese in Sets und Maps. Ermöglicht das Suchen und Ausgeben
  * einzelner sowie aller gespeicherten Objekte.
  *
  * @author Mattis Pallokat
@@ -19,8 +19,9 @@ public class HealthManagement {
     static Set<Doctor> doctorSet = new HashSet<>();
 
     /**
-     * Erstellt die Doctor- und Patientenobjekten, und testet die addPerson, findPersonById und listPersonal Methoden.
-     * (kp ob testen richtig ist)
+     * Erstellt die Doctor- und Patientenobjekte und führt die addPerson, findPersonById und listPersonal Methoden aus.
+     * Zudem wird in der Methode bei Erstellung der Objekte und der Ausführung der Methoden nach möglichen Fehlern und
+     * Exceptions gesucht.
      */
     public static void main(String[] args) {
         Patient hugo = new Patient("Hugo", 1993);
@@ -79,7 +80,7 @@ public class HealthManagement {
      * Fügt das übergebene Objekt in die passende Map und Set ein. Prüft, ob das übergebene Objekt nicht leer ist, ob es
      * schon nicht schon eingefügt wurde, und ob die ID des Objektes noch nicht vergeben wurde.
      *
-     * @param p Doctor- oder Patientenobjekten welches in die jeweilige Map und Set hinzugefügt wird.
+     * @param p Doctor- oder Patientenobjekte welches in die jeweilige Map und Set hinzugefügt wird.
      * @throws IllegalArgumentException wird geworfen, wenn das übergebene Objekt leer ist.
      * @throws DuplicateIdException wird geworfen, wenn das übergebene Objekt eine schon existierende ID hat.
      */
@@ -118,7 +119,7 @@ public class HealthManagement {
     }
 
     /**
-     * Sucht aus allen Maps und Sets das passende Doctor- oder Patientenobjekten raus, und nutzt dafür die ID des
+     * Sucht aus allen Maps und Sets das passende Doctor- oder Patientenobjekte raus, und nutzt dafür die ID des
      * übergebenen Objektes. Wenn das gesuchte Objekt gefunden wurde, werden alle Informationen ausgeben.
      *
      * @param id Eideutige ID eines Doctor- oder Patientenobjekt.
@@ -141,7 +142,7 @@ public class HealthManagement {
     }
 
     /**
-     *Gibt alle informationen zu allen Doctor- und Patientenobjekten aus.
+     *Gibt alle informationen zu allen Doctor- und Patientenobjekte aus.
      *Sortierung wird mithilfe einer ArrayList ermöglicht.
      */
     public static void listPersonal(){
