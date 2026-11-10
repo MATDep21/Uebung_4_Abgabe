@@ -18,8 +18,8 @@ public class Doctor extends Person {
      *
      * @param name Name des Doctors
      * @param id Eindeutige ID des Doctors
-     * @throws InvalidNameException wird geworfen, wenn der Name {@code null} oder aus Leerzeichen besteht.
-     * Prüfung erfolgt in der Elternklasse Person
+     * @throws InvalidNameException wird geworfen, wenn der Name {@code null}, leer ist oder
+     * nur aus Leerzeichen besteht. Prüfung erfolgt in der Elternklasse Person.
      */
 
     public Doctor(String name, int id){

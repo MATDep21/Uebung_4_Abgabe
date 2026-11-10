@@ -5,8 +5,8 @@ import vorlesung_5.exceptions.InvalidNameException;
 import java.util.Objects;
 
 /**
- *Abstrakte Basisklasse für Personen mit einem Namen und einer eindeutigen ID.
- *Jede Person kann ihre Informationen anzeigen und anhand ihrer ID mit anderen Personen verglichen werden
+ * Abstrakte Basisklasse für Personen mit einem Namen und einer eindeutigen ID.
+ * Jede Person kann ihre Informationen anzeigen und anhand ihrer ID mit anderen Personen verglichen werden
  *
  * @author Yacine Si-Mohammed
  * @author Mattis Pallokat
@@ -23,13 +23,14 @@ public abstract class Person implements Comparable<Person>, Identifiable{
      *
      * @param name Name der Person
      * @param id einzigartige ID der Person
-     * @throws InvalidNameException wird geworfen, wenn der Name {@code null} ist oder aus Leerzeichen besteht.
+     * @throws InvalidNameException wird geworfen, wenn der Name {@code null} ist, leer ist oder
+     * nur aus Leerzeichen besteht.
      */
 
     public Person(String name, int id) throws InvalidNameException {
 
         if(name == null || name.isBlank()){
-            throw new InvalidNameException("Name darf weder Leer sein oder nur aus Leerzeichen bestehen!");
+            throw new InvalidNameException("Name darf weder leer sein noch ausschließlich aus Leerzeichen bestehen!");
         }
         else {
             this.name = name;
@@ -65,10 +66,10 @@ public abstract class Person implements Comparable<Person>, Identifiable{
     }
 
      /**
-     * Überprüft, ob zwei Personen gleich sind
+     * Überprüft, ob zwei Personen gleich sind anhand der ID
      *
-     * @param o   die Referenzperson mit welcher verglichen wird.
-     * @return {@code true}, wenn die zwei Personen die gleiche ist, sonst {@code false}
+     * @param o die Referenzperson mit welcher verglichen wird.
+     * @return {@code true}, wenn die zwei Personen gleich sind, sonst {@code false}
      */
 
     @Override

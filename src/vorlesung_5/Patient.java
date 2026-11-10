@@ -16,8 +16,8 @@ public class Patient extends Person {
      * Erstellt einen Patienten anhand des übergebenen Namens und ID.
      * @param name Name des Patienten
      * @param id Eindeutige ID des Patienten
-     * @throws InvalidNameException wird geworfen, wenn der Name {@code null} ist oder aus Leerzeichen besteht.
-     * Prüfung erfolgt in der Elternklasse Person
+     * @throws InvalidNameException wird geworfen, wenn der Name {@code null} ist, leer ist oder
+     * nur aus Leerzeichen besteht. Prüfung erfolgt in der Elternklasse Person.
      */
 
     public Patient(String name, int id){
