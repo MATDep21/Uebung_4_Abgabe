@@ -12,6 +12,7 @@ import java.util.*;
  * @author Yacine Si-Mohammed
  * @version 1.0
  */
+
 public class HealthManagement {
     static Map<Integer, Patient> patientMap = new HashMap<>();
     static Set<Patient> patientSet = new HashSet<>();
@@ -23,6 +24,7 @@ public class HealthManagement {
      * Zudem wird in der Methode bei Erstellung der Objekte und der Ausführung der Methoden nach möglichen Fehlern und
      * Exceptions gesucht.
      */
+
     public static void main(String[] args) {
         Patient hugo = new Patient("Hugo", 1993);
         try {
@@ -72,8 +74,8 @@ public class HealthManagement {
             System.out.println(e.getMessage());
         }
     }
-    /*
 
+    /**
     Eine Checked Exception ist sinnvoller, um erwartbare Probleme bei korrektem Code abzufangen, wie zum Beispiel
     fehlende Namen oder doppelte IDs.
     Eine Unchecked Exception dient wiederum Fehler im Code, wie zum Beispiel IndexOutOfBoundsException, welche während
@@ -166,10 +168,9 @@ public class HealthManagement {
 }
 
 /**
- *
- *-InvalidNameException hat ursprünglich von Exceptions geerbt, dieser ist checked und somit auch InvalidNameException
+ *-InvalidNameException hat ursprünglich von Exception geerbt, dieser ist checked und somit auch InvalidNameException
  *-NoSuchElementException gehört zu den RuntimeExceptions und ist somit Unchecked
- *-Änderung der Exception ändert wie der Compiler mit einem Fehler umgeht, da jetzt jede exception gecached wird und
- *nicht nur die die Angegeben worden sind
+ *-Änderung der Exception ändert wie der Compiler mit einem Fehler umgeht,
+ * da jetzt keine prüfung verlangt für die checked Exception verlangt wird sondern nun freiwilig ist.
  *
  */

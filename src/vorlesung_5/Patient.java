@@ -8,12 +8,14 @@ package vorlesung_5;
  * @author Mattis Pallokat
  * @version 1.0
  */
+
 public class Patient extends Person {
     /**
      * Erstellt einen Patienten anhand des übergebenen Namens und ID
      * @param name Name des Patienten
      * @param id Eindeutige ID des Patienten
      */
+
     public Patient(String name, int id){
         super(name,id);
     }
@@ -21,6 +23,7 @@ public class Patient extends Person {
     /**
      * Gibt den Namen und die ID des Patienten als String auf die Konsole aus.
      */
+
     @Override
     public void displayInfo(){
         System.out.println("Patient: Name: " + getName() + ", ID: " + getId());
@@ -30,6 +33,7 @@ public class Patient extends Person {
      * Gibt die ID des Patienten zurück
      * @return Die eindeutige ID des Patienten.
      */
+
     public int getPatientId(){
         return getId();
     }

@@ -12,6 +12,7 @@ import java.util.Objects;
  * @author Mattis Pallokat
  * @version 1.0
  */
+
 public abstract class Person implements Comparable<Person>, Identifiable{
 
     private String name;
@@ -24,6 +25,7 @@ public abstract class Person implements Comparable<Person>, Identifiable{
      * @param id einzigartige ID der Person
      * @throws InvalidNameException wird geworfen, wenn der Name {@code null} oder leer ist.
      */
+
     public Person(String name, int id) throws InvalidNameException {
 
         if(name == null || name.isBlank()){
@@ -45,6 +47,7 @@ public abstract class Person implements Comparable<Person>, Identifiable{
      *
      * @return Eindeutige ID der Person
      */
+
     @Override
     public int getId() {
         return id;
@@ -55,6 +58,7 @@ public abstract class Person implements Comparable<Person>, Identifiable{
      *
      * @return Namen der Person
      */
+
     @Override
     public String getName(){
         return name;
@@ -66,6 +70,7 @@ public abstract class Person implements Comparable<Person>, Identifiable{
      * @param o   die Referenzperson mit welcher verglichen wird.
      * @return {@code true}, wenn die zwei Personen die gleiche ist, sonst {@code false}
      */
+
     @Override
     public boolean equals(Object o){
         if (this == o) return true;
@@ -80,6 +85,7 @@ public abstract class Person implements Comparable<Person>, Identifiable{
      *
      * @return der Hashcode der Person
      */
+
     @Override
     public int hashCode(){
         return Objects.hashCode(id);
@@ -91,6 +97,7 @@ public abstract class Person implements Comparable<Person>, Identifiable{
      * @param p die Person mit der verglichen wird.
      * @return {@code -1} wenn die ID kleiner ist, {@code 0} wenn IDs gleich groß sind, {@code 1} wenn ID größer ist
      */
+
     @Override
     public int compareTo(Person p){
         int val = 0;
